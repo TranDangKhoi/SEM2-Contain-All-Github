@@ -6,5 +6,7 @@ public class Variable {
         System.out.println(randomNum);
         boolean isKhoiHandsome = true;
         System.out.println(isKhoiHandsome);
+        float floatNum = 69.42f;
+        System.out.print(floatNum);
     }
 }
