@@ -7,6 +7,7 @@ public class Battery {
     public Battery(){
         energy = 100;
     }
+
     // Method
     public void setEnergy(int value){
         this.energy = value;
@@ -20,8 +21,10 @@ public class Battery {
         energy--;
     }
 
-    public void printBattery(){
-        System.out.printf("Battery: %d",energy);
-    }
-    
+    // Khai báo và thiết lập một object Battery.
+    // Khai báo và thiết lập một object Flash.
+    // Gắn battery vào trong flash.
+    // Bật và tắt đèn pin 10 lần
+    // Hiển thị số pin còn lại trong đèn pin
+
 }
