@@ -6,6 +6,4 @@ public class Run {
     myRectangle.setHeight(5);
     myRectangle.display();
     }
-
-    
 }
