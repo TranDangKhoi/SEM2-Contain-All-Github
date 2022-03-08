@@ -21,10 +21,6 @@ public class Test {
         myFlash.turnOff();
         myFlash.turnOn();
         myFlash.turnOff();
-        myFlash.turnOn();
-        myFlash.turnOff();
-        myFlash.turnOn();
-        myFlash.turnOff();
         System.out.println(myFlash.getBatteryInfo());
     }
 }

@@ -4,7 +4,7 @@ public class SwitchButton {
     private boolean status;
     private ElectricLamp lamp;
     public SwitchButton(){
-        
+        status = true;
     }
 
     public void connectToLamp(ElectricLamp lamp){
@@ -13,10 +13,11 @@ public class SwitchButton {
     
     public void switchOff(){
         status = false;
+        lamp.turnOff();
     }
 
     public void switchOn(){
-        if(lamp.getStatus() == true)
         status = true;
+        lamp.turnOn();
     }
 }
