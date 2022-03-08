@@ -11,6 +11,10 @@ public class SwitchButton {
         this.lamp = lamp;
     }
     
+    public boolean getSwitchStatus(){
+        return this.status;
+    }
+    
     public void switchOff(){
         status = false;
         lamp.turnOff();
