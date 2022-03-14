@@ -17,5 +17,5 @@ public class ElectricLamp {
 
     public void turnOff(){
          status = false;
-}
+    }
 }

@@ -1,7 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "W3School-Course #3 (Variable)",
-        "W3School-Course #2 (Comment)",
-        "W3School-Course #1 (Hello World)"
+        "JavaLab02/src/Array",
+        "JavaLab02/src/ElectricLamp"
     ]
 }
