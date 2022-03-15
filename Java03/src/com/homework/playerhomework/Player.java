@@ -1,4 +1,4 @@
-package com.homework.entities;
+package com.homework.playerhomework;
 
 public abstract class Player {
     private String name;
