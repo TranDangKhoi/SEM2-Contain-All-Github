@@ -73,12 +73,9 @@ public class Account {
 
 
     public void displayDetails(){
-        System.out.println("Account Details:");
-        System.out.println("AccNo.   Name \t\t Type\tBalance");
-        Iterator iAccount = accDetails.iterator();
-        while (iAccount.hasNext()){
-            System.out.print(iAccount.next() + "\t");
-        }
-        System.out.println("");
+        System.out.println("Account Number:" + accountNumber);
+        System.out.println("Account Holder Name:" + accountHolderName);
+        System.out.println("Account Type:" + accountType);
+        System.out.println("Balance:" + balance);
     }
 }

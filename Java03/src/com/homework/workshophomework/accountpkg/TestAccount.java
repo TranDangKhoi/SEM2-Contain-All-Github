@@ -7,7 +7,7 @@ public class TestAccount {
     public static void main(String[] args) {
 
         // this String[] array is used to store account details
-       String[] accountDetails = new String[4];
+       String[] accountDetails = new String[5];
        String[] bankDetails = new String[3];
        // Instantiate the Scanner class
        Scanner input = new Scanner(System.in);
@@ -21,6 +21,8 @@ public class TestAccount {
        accountDetails[2] = input.nextLine();
        System.out.print("Enter Balance:");
        accountDetails[3] = input.nextLine();
+       System.out.print("Enter number of days:");
+       accountDetails[4] = input.nextLine();
         
 
        // Enter details for Bank
@@ -30,9 +32,10 @@ public class TestAccount {
        bankDetails[1] = input.nextLine();
        System.out.print("Enter Branch:");
        bankDetails[2] = input.nextLine();
+       input.close();
 
        // Declare and instantiate object of type Account;
-       Account objAccount1 = new Account();
+       SavingAccount objAccount1 = new SavingAccount(accountDetails[0],accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
 
        // Add the details of objAccount1 object. -> Truyen tham so vao object bang scanner
        objAccount1.addDetails(accountDetails);
@@ -49,6 +52,7 @@ public class TestAccount {
 
        // Display bank info
        objBank1.displayBankDetails();
+       System.out.println("Daily interest: " + objAccount1.calculateInterest());
     }
 
     
