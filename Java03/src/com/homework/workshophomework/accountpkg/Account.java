@@ -17,7 +17,6 @@ public class Account {
     // arrayList = ["accNo","accHolderName","accType",balance];
 
     public Account(){
-        System.out.println("An default constructor with no arguments:");
         this.accountNumber = "Not specified";
         this.accountHolderName = ("Not specified");
         this.accountType = "Not specified";

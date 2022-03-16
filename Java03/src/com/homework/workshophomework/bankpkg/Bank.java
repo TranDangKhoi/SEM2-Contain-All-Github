@@ -23,4 +23,22 @@ public class Bank {
             this.bankName = bankName;
             this.branch = branch;
         }
+
+        public void addBankDetails(String[] details){
+            System.out.println("Adding Bank Details. Please wait...");
+            for (int i = 0; i < details.length; i++){
+            bankDetails.add(details[i]);
+            }
+        }
+
+        public void displayBankDetails(){
+            System.out.println("Bank Details:");
+            System.out.println("Bank ID\tBank Name\tBranch \t Interests");
+            Iterator iBank = bankDetails.iterator();
+            while (iBank.hasNext()){
+                System.out.print(iBank.next() + "\t");
+            }
+            System.out.print(interestRate);
+            System.out.println("");
+        }
 }
