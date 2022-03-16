@@ -1,5 +1,7 @@
 package com.homework.workshophomework;
 
+
+
 public class TestAccount {
     public static void main(String[] args) {
         Account objAccount1;
@@ -12,10 +14,7 @@ public class TestAccount {
         Account objAccount2 = new Account();
 
         // Set value for the object
-        objAccount2.setAccNo(args[0]);
-        objAccount2.setAccountHolderName(args[1]);
-        objAccount2.setAccountType(args[2]);
-        objAccount2.setBalance(Double.parseDouble(args[3]));
+        objAccount2.addDetails(args);
         // Display
         objAccount2.displayDetails();
         } else{

@@ -1,5 +1,8 @@
 package com.homework.workshophomework;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Account {
     // Store account number
     private String accountNumber;
@@ -9,6 +12,8 @@ public class Account {
     private String accountType;
     // Store account's balance
     private double balance;
+    // Array list
+    private ArrayList accDetails = new ArrayList();
 
     public Account(){
         System.out.println("An default constructor with no arguments:");
@@ -26,6 +31,12 @@ public class Account {
         this.setAccountHolderName(name);
         this.accountType = accType;
         this.balance = bal;
+    }
+
+    public void addDetails(String[] details){
+        for (int i = 0; i < details.length; i++){
+            accDetails.add(details[i]);
+        }
     }
 
     public String getAccNo(){
@@ -63,9 +74,11 @@ public class Account {
 
     public void displayDetails(){
         System.out.println("Account Details:");
-        System.out.println("Account Number: " + accountNumber);
-        System.out.println("Account Holder Name: " + accountHolderName);
-        System.out.println("Account Type: " + accountType);
-        System.out.println("Balance: " + balance);
+        System.out.println("AccNo.   Name \t\t Type\tBalance");
+        Iterator iAccount = accDetails.iterator();
+        while (iAccount.hasNext()){
+            System.out.print(iAccount.next() + "\t");
+        }
+        System.out.println("");
     }
 }
