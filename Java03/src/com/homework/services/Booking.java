@@ -1,4 +1,6 @@
-package com.homework.playerhomework;
+package com.homework.services;
+
+import com.homework.playerhomework.Player;
 
 public class Booking extends Player {
 
