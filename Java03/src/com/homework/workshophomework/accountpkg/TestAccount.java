@@ -35,8 +35,8 @@ public class TestAccount {
        input.close();
 
        // Declare and instantiate object of type Account;
-       SavingAccount objAccount1 = new SavingAccount(accountDetails[0],accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
-
+       Account objAccount1 = new SavingAccount(accountDetails[0],accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
+       objAccount1.displayDetails();
        // Add the details of objAccount1 object. -> Truyen tham so vao object bang scanner
        objAccount1.addDetails(accountDetails);
 
@@ -52,7 +52,7 @@ public class TestAccount {
 
        // Display bank info
        objBank1.displayBankDetails();
-       System.out.println("Daily interest: " + objAccount1.calculateInterest());
+
     }
 
     

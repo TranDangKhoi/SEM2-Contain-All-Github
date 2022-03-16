@@ -26,4 +26,10 @@ public class SavingAccount extends Account{
         // Return
         return Double.valueOf(twoDForm.format(dailyInterest));
     }
+
+    @Override
+    public void displayDetails(){
+        super.displayDetails();
+        System.out.println("Daily interest: " + calculateInterest());
+    }
 }

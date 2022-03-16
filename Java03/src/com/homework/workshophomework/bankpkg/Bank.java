@@ -33,7 +33,7 @@ public class Bank {
 
         public void displayBankDetails(){
             System.out.println("Bank Details:");
-            System.out.println("Bank ID\tBank Name\tBranch \t Interests");
+            System.out.println("BankID\tBankName  Branch\tInterests");
             Iterator iBank = bankDetails.iterator();
             while (iBank.hasNext()){
                 System.out.print(iBank.next() + "\t");
