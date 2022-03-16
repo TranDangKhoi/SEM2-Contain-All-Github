@@ -1,4 +1,4 @@
-package com.homework.workshophomework;
+package com.homework.workshophomework.accountpkg;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,6 +14,7 @@ public class Account {
     private double balance;
     // Array list
     private ArrayList accDetails = new ArrayList();
+    // arrayList = ["accNo","accHolderName","accType",balance];
 
     public Account(){
         System.out.println("An default constructor with no arguments:");
