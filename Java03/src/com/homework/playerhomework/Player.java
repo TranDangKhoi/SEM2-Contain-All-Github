@@ -1,5 +1,7 @@
 package com.homework.playerhomework;
 
+
+
 public abstract class Player {
     private String name;
 
@@ -18,7 +20,11 @@ public abstract class Player {
     public void setName(String name) {
         this.name = name;
     }
-
-    public abstract void displayDetails();
     
+    class Booking{
+        public String nameStore(){
+            return name;
+        }
+    }
+    public abstract void displayDetails();
 }
