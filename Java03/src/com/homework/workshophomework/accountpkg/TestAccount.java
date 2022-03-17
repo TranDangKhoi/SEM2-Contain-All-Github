@@ -3,6 +3,7 @@ package com.homework.workshophomework.accountpkg;
 import com.homework.workshophomework.bankpkg.Bank;
 import java.util.Scanner;
 
+
 public class TestAccount {
     public static void main(String[] args) {
 
@@ -32,10 +33,10 @@ public class TestAccount {
        bankDetails[1] = input.nextLine();
        System.out.print("Enter Branch:");
        bankDetails[2] = input.nextLine();
-       input.close();
+       
 
        // Declare and instantiate object of type Account;
-       Account objAccount1 = new SavingAccount(accountDetails[0],accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
+       SavingAccount objAccount1 = new SavingAccount(accountDetails[0],accountDetails[1],accountDetails[2],Double.parseDouble(accountDetails[3]),Integer.parseInt(accountDetails[4]));
        objAccount1.displayDetails();
        // Add the details of objAccount1 object. -> Truyen tham so vao object bang scanner
        objAccount1.addDetails(accountDetails);
@@ -43,6 +44,7 @@ public class TestAccount {
        // Display account detail
 
        objAccount1.displayDetails();
+       
 
        // Declare and instantiate object of type Bank
        Bank objBank1 = new Bank();
@@ -52,6 +54,13 @@ public class TestAccount {
 
        // Display bank info
        objBank1.displayBankDetails();
+       System.out.println("Enter Deposit Amount:");
+       double deposit = Double.parseDouble(input.nextLine());
+       objAccount1.depositCash(accountDetails[0], deposit);
+       System.out.println("Enter Withdraw Amount:");
+       double withdraw = Double.parseDouble(input.nextLine());
+       objAccount1.withdrawCast(accountDetails[0], withdraw);
+       input.close();
 
     }
 
