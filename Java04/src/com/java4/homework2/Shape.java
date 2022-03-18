@@ -10,7 +10,7 @@ public abstract class Shape {
     public Shape(String color){
         this.color = color;
     }
-
+    
     public abstract int getArea();
     public abstract String toString();
 }

@@ -19,7 +19,7 @@ public class Rectangle extends Shape {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "Length:" + length + "\nWidth:" + width; 
+        return "Rectangle [length="+length+"]" + " and " + "[width="+width+"]";
     }
     
 }

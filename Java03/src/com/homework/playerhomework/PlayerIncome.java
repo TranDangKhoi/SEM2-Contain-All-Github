@@ -5,7 +5,7 @@ public class PlayerIncome extends Player implements Tax {
     private double income;
 
     public PlayerIncome(){
-        this.income = "Not specified";
+        this.income = 0.0;
     }
 
     public PlayerIncome(double value){
