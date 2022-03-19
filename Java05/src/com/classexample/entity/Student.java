@@ -11,7 +11,7 @@ public class Student {
     }
     public Student(int id, String firstName, String lastName, double mark) {
 
-         this.id = 1;
+         this.id = id;
          this.firstName = firstName;
          this.lastName = lastName;
          this.mark = mark;
@@ -30,7 +30,7 @@ public class Student {
          scanner.close();
         }
         public void printInfo() {
-    System.out.printf("%3d|%10s%10s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
+    System.out.printf("%3d|%1s%1s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
         }
     public String getFirstName() {
         return firstName;  
