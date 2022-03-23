@@ -1,6 +1,6 @@
 package com.classexample.entity;
 
-import java.util.Scanner;
+
 public class Student {
     private int id;
     private String firstName;
@@ -17,20 +17,9 @@ public class Student {
          this.mark = mark;
     }
 
-    public void scanInfo() {
-         Scanner scanner = new Scanner(System.in);
-         System.out.println("Enter ID:");
-         this.id = scanner.nextInt();
-         System.out.println("Enter first name: ");
-         this.firstName = scanner.nextLine();
-         System.out.println("Enter last Name: ");
-         this.lastName = scanner.nextLine ();
-         System.out.println("Enter mark: ");
-         this.mark = scanner.nextDouble();
-         scanner.close();
-        }
+    
         public void printInfo() {
-    System.out.printf("%3d|%1s%1s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
+    System.out.printf("%3d|%3s%3s|%5f\n", getId(), getFirstName(), getLastName(), getMark());
         }
     public String getFirstName() {
         return firstName;  
@@ -44,5 +33,7 @@ public class Student {
     public double getMark() {
        return mark;
     }
+    
+    
 }
     

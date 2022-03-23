@@ -13,7 +13,7 @@ public class Application {
             System.out.println("\n1. Add a new student");
             System.out.println("2. Delete a student");
             System.out.println("3. Search by student's name");
-            System.out.println("4. Search by ID");
+            System.out.println("4. Search by ID1");
             System.out.println("5. Print student details in desc order of mark");
             System.out.println("6. Exit");
         }
@@ -23,7 +23,7 @@ public class Application {
 
             while(true){
                 int choice;
-                System.out.println("#:");
+                System.out.print("Your choice is:");
                 choice = input.nextInt();
                 if (choice == 1){
                     addStudent();
@@ -46,7 +46,7 @@ public class Application {
             }
         }
         public static void addStudent(){
-            int id = 0;
+            int id;
             String fn;
             String ln;
             double mark;
@@ -62,7 +62,7 @@ public class Application {
             list.add(s);
         }
 
-        public static void deleteStudent(){
+        public static void deleteStudent() {
             int id;
             System.out.print("Enter student ID:");
             id = input.nextInt();
@@ -73,8 +73,8 @@ public class Application {
             String name;
             System.out.print("Enter a name:");
             name = input.next();
-            ArrayList<Student> found = list.findByName(name);
-            list.showList(found);
+            ArrayList<Student> foundName = list.findByName(name);
+            list.showList(foundName);
         }
 
         public static void searchByID(){

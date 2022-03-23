@@ -23,6 +23,7 @@ public class Cat extends Animal {
     public void catchMouse(){
         // do something
     }
+    
     @Override
     public String getAnimalName(){
         return "Jerry";

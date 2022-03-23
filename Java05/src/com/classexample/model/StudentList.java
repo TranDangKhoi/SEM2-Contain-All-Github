@@ -11,7 +11,9 @@ public class StudentList {
     private ArrayList<Student> list;
     private int length;
 
-    public StudentList() {list = new ArrayList<Student>();}
+    public StudentList() {
+        list = new ArrayList<Student>();
+    }
 
     public ArrayList<Student> findByName(String name){
         boolean found = false;
@@ -75,4 +77,5 @@ public class StudentList {
             s.printInfo();
         }
     }
+    
 }
