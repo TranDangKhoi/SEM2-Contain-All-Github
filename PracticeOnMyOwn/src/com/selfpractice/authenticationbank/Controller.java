@@ -130,7 +130,7 @@ public class Controller {
                     break;
                 case 6:
                     clearScreen();
-                    signOut();
+                    home();
                     break;
                 case 0:
                     System.exit(1);
@@ -219,6 +219,8 @@ public class Controller {
         boolean checkTransfer = false;
         int count = 0;
         String accNumTransfer = null;
+        double currentBalance = 0.0;
+        double newBalance = 0.0;
         while (!checkTransfer) {
             try {
                 System.out.print("Please enter the account number you want to transfer to: ");
@@ -232,9 +234,12 @@ public class Controller {
                         if (users.get(i).getBalance() > transferAmount) {
                             checkTransfer = true;
                             clearScreen();
-                            System.out.println("Money has been transfered");
-                            System.out.println(
-                                    "Your current balance is: " + (users.get(i).getBalance() - transferAmount));
+                            System.out.println("Money has been transfered to " + users.get(i).getUsername());
+                            for (int j = 0; j < users.size(); j++) {
+                                if (username.equals(users.get(j).getUsername()))
+                                    System.out.println(
+                                            "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
+                            }
                         } else {
                             throw new RuntimeException("Your balance is not enough to be transfered");
                         }
@@ -329,10 +334,6 @@ public class Controller {
             default:
                 break;
         }
-    }
-
-    public void signOut() {
-
     }
 
     public void forgotPassword() {

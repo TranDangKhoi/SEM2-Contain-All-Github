@@ -23,6 +23,7 @@ public class Menu {
         System.out.println("3 - Transfer money");
         System.out.println("4 - Withdraw money");
         System.out.println("5 - Deposit money");
+        System.out.println("6 - Sign out");
         System.out.println("0 - Exit");
         System.out.print("Your choice is: ");
     }
