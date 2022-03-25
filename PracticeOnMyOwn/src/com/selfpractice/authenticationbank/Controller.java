@@ -77,7 +77,7 @@ public class Controller {
                 System.out.print("Nhập email: ");
                 newEmail = Validation.validateEmail(scanner.nextLine());
                 System.out.print("Nhập mật khẩu: ");
-                newPassword = Validation.validateEmail(scanner.nextLine());
+                newPassword = Validation.validatePassword(scanner.nextLine());
                 System.out.print("Nhập số tài khoản:");
                 newaccNum = Validation.validateaccNum(scanner.nextLine());
                 for (int i = 0; i < users.size(); i++) {
@@ -282,12 +282,14 @@ public class Controller {
                 System.out.print("Enter the amount of money you want to withdraw: ");
                 withdrawAmount = scanner.nextDouble();
                 for (int i = 0; i < users.size(); i++) {
-                    if (users.get(i).getBalance() > withdrawAmount && username.equals(users.get(i).getUsername())) {
-                        checkWithdraw = true;
-                        System.out.println("Withdraw successfully! Your balance is now: "
-                                + (users.get(i).getBalance() - withdrawAmount));
-                        newBalance = users.get(i).getBalance() - withdrawAmount;
-                        users.get(i).setBalance(newBalance);
+                    if (users.get(i).getBalance() > withdrawAmount) {
+                        if (username.equals(users.get(i).getUsername())) {
+                            checkWithdraw = true;
+                            System.out.println("Withdraw successfully! Your balance is now: "
+                                    + (users.get(i).getBalance() - withdrawAmount));
+                            newBalance = users.get(i).getBalance() - withdrawAmount;
+                            users.get(i).setBalance(newBalance);
+                        }
                     } else {
                         throw new RuntimeException("Your balance is not enough to be withdrawed");
                     }

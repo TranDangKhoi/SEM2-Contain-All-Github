@@ -16,7 +16,7 @@ public class Validation {
         if (matcher.find()) {
             return email;
         } else {
-            throw new RuntimeException("Email khong hop le!");
+            throw new RuntimeException("Email is invalid!");
         }
     }
 
