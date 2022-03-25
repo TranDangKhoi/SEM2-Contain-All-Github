@@ -46,7 +46,7 @@ public class TestStudent {
         
         while(true){
         int choice;
-        choice = input.nextInt();
+        choice = input.nextInt(); 
             switch(choice){
                 case 1:
                 clearScreen();
