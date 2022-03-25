@@ -25,7 +25,7 @@ public class Validation {
         if (matcher.find()) {
             return password;
         } else {
-            throw new RuntimeException("Password khong hop le");
+            throw new RuntimeException("Password is invalid!");
         }
     }
 

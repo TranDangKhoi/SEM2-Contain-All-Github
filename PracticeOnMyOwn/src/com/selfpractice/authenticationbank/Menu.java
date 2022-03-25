@@ -6,7 +6,7 @@ public class Menu {
         System.out.println("1 - Sign in");
         System.out.println("2 - Sign up");
         System.out.println("3 - Exit");
-        System.out.println("Your choice is: ");
+        System.out.print("Your choice is: ");
     }
 
     public static void loginFailMenu() {

@@ -348,5 +348,47 @@ public class Controller {
     }
 
     public void forgotPassword() {
+        String recoveryEmail = null;
+        int count = 0;
+        System.out.print("Enter your account's email: ");
+        recoveryEmail = Validation.validateEmail(scanner.nextLine());
+        for (int i = 0; i < users.size(); i++) {
+            if (recoveryEmail.equals(users.get(i).getEmail())) {
+                boolean checkValidate = false;
+                count++;
+                while (!checkValidate) {
+                    try {
+                        String newPassword;
+                        System.out.print("Enter your new password: ");
+                        newPassword = Validation.validatePassword(scanner.nextLine());
+                        users.get(i).setPassword(newPassword);
+                        System.out.println("Changed password successfully!");
+                    } catch (RuntimeException e) {
+                        System.out.println(e.getMessage() + ", please re-enter a valid password");
+                    }
+                }
+            }
+        }
+        if (count == 0) {
+            System.out.println("The email you entered is invalid, please try again");
+        }
+        System.out.println("1 - Return to login menu");
+        System.out.println("2 - Exit");
+        int choice;
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                clearScreen();
+                System.out.println("Please log in again:");
+                login();
+                break;
+            case 2:
+                clearScreen();
+                System.exit(1);
+                break;
+            default:
+                break;
+        }
     }
 }
