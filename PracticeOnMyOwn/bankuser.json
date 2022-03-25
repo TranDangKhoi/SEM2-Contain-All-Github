@@ -1,25 +1,25 @@
 [{
         "id": 1,
         "username": "admin",
-        "bankNum": "7677110620033",
+        "accNum": "7677110620033",
         "password": "toilaadmin@123",
         "email": "admin@gmail.com",
-        "balance": 100500000.00
+        "balance": 5100.00
     },
     {
         "id": 2,
         "username": "khoi",
-        "bankNum": "3888991100324",
+        "accNum": "3888991100324",
         "password": "toilakhoi@123",
         "email": "khoi@gmail.com",
-        "balance": 999999999999.00
+        "balance": 9000.00
     },
     {
         "id": 3,
-        "bankNum": "9699119820033",
+        "accNum": "9699119820033",
         "username": "manager",
         "password": "toilamanager@123",
         "email": "manager@gmail.com",
-        "balance": 60000000.00
+        "balance": 6000.00
     }
 ]
