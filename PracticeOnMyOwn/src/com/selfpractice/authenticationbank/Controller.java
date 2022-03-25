@@ -219,7 +219,6 @@ public class Controller {
         boolean checkTransfer = false;
         int count = 0;
         String accNumTransfer = null;
-        double currentBalance = 0.0;
         double newBalance = 0.0;
         while (!checkTransfer) {
             try {
@@ -235,10 +234,14 @@ public class Controller {
                             checkTransfer = true;
                             clearScreen();
                             System.out.println("Money has been transfered to " + users.get(i).getUsername());
+                            newBalance = users.get(i).getBalance() + transferAmount;
+                            users.get(i).setBalance(newBalance);
                             for (int j = 0; j < users.size(); j++) {
                                 if (username.equals(users.get(j).getUsername()))
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
+                                newBalance = users.get(j).getBalance() - transferAmount;
+                                users.get(j).setBalance(newBalance);
                             }
                         } else {
                             throw new RuntimeException("Your balance is not enough to be transfered");
@@ -273,6 +276,7 @@ public class Controller {
     public void withdrawMoney() {
         double withdrawAmount;
         boolean checkWithdraw = false;
+        double newBalance = 0.0;
         while (!checkWithdraw) {
             try {
                 System.out.print("Enter the amount of money you want to withdraw: ");
@@ -282,6 +286,8 @@ public class Controller {
                         checkWithdraw = true;
                         System.out.println("Withdraw successfully! Your balance is now: "
                                 + (users.get(i).getBalance() - withdrawAmount));
+                        newBalance = users.get(i).getBalance() - withdrawAmount;
+                        users.get(i).setBalance(newBalance);
                     } else {
                         throw new RuntimeException("Your balance is not enough to be withdrawed");
                     }
@@ -310,12 +316,15 @@ public class Controller {
 
     public void depositMoney() {
         double depositAmount;
+        double newBalance;
         for (int i = 0; i < users.size(); i++) {
             if (username.equals(users.get(i).getUsername())) {
                 System.out.print("Enter the amount you want to deposit: ");
                 depositAmount = scanner.nextDouble();
                 System.out.println(
                         "Deposit successfully! Your balance is now: " + (users.get(i).getBalance() + depositAmount));
+                newBalance = users.get(i).getBalance() + depositAmount;
+                users.get(i).setBalance(newBalance);
             }
         }
         System.out.println("1 - Return to login menu");
