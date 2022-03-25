@@ -216,35 +216,52 @@ public class Controller {
     }
 
     public void transferMoney() {
+        boolean checkTransfer = false;
         int count = 0;
         String accNumTransfer = null;
-        boolean checkTransfer = false;
         while (!checkTransfer) {
-            System.out.print("Please enter the account number you want to transfer to: ");
-            accNumTransfer = scanner.nextLine();
-            for (int i = 0; i < users.size(); i++) {
-                if (accNumTransfer.equals(users.get(i).getaccNum())) {
-                    count++;
-                    double transferAmount;
-                    try {
+            try {
+                System.out.print("Please enter the account number you want to transfer to: ");
+                accNumTransfer = scanner.nextLine();
+                for (int i = 0; i < users.size(); i++) {
+                    if (accNumTransfer.equals(users.get(i).getaccNum())) {
+                        count++;
+                        double transferAmount;
                         System.out.print("Please enter the amount of money you want to transfer: ");
                         transferAmount = scanner.nextDouble();
                         if (users.get(i).getBalance() > transferAmount) {
                             checkTransfer = true;
                             clearScreen();
                             System.out.println("Money has been transfered");
-                            loginSuccess();
+                            System.out.println(
+                                    "Your current balance is: " + (users.get(i).getBalance() - transferAmount));
                         } else {
                             throw new RuntimeException("Your balance is not enough to be transfered");
                         }
-                    } catch (RuntimeException e) {
-                        System.out.println(e.getMessage());
                     }
                 }
-                if (count == 0) {
-                    System.out.println("The account number you entered is not existed, please try again");
-                }
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
+            if (count == 0) {
+                System.out.println("Can't find that account number, please try again");
+            }
+        }
+        System.out.println("1 - Return to login menu");
+        System.out.println("2 - Exit");
+        int choice;
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                clearScreen();
+                Menu.loginSuccessMenu();
+                break;
+            case 2:
+                clearScreen();
+                System.exit(1);
+            default:
+                break;
         }
     }
 
@@ -268,6 +285,22 @@ public class Controller {
                 System.out.println(e.getMessage());
             }
         }
+        System.out.println("1 - Return to login menu");
+        System.out.println("2 - Exit");
+        int choice;
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                clearScreen();
+                Menu.loginSuccessMenu();
+                break;
+            case 2:
+                clearScreen();
+                System.exit(1);
+            default:
+                break;
+        }
     }
 
     public void depositMoney() {
@@ -279,6 +312,22 @@ public class Controller {
                 System.out.println(
                         "Deposit successfully! Your balance is now: " + (users.get(i).getBalance() + depositAmount));
             }
+        }
+        System.out.println("1 - Return to login menu");
+        System.out.println("2 - Exit");
+        int choice;
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                clearScreen();
+                Menu.loginSuccessMenu();
+                break;
+            case 2:
+                clearScreen();
+                System.exit(1);
+            default:
+                break;
         }
     }
 
