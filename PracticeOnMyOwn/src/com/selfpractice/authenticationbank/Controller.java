@@ -42,14 +42,14 @@ public class Controller {
             int count = 0;
             System.out.print("Your username: ");
             username = scanner.nextLine();
+            System.out.print("Your password: ");
+            password = scanner.nextLine();
             for (int i = 0; i < users.size(); i++) {
                 if (username.equals(users.get(i).getUsername())) {
-                    count++;
-                    System.out.print("Your password: ");
-                    password = scanner.nextLine();
                     if (password.equals(users.get(i).getPassword())) {
                         loginSuccess();
                         checkLogin = true;
+                        count++;
                     } else {
                         loginFail();
                         break;
@@ -57,7 +57,7 @@ public class Controller {
                 }
             }
             if (count == 0) {
-                System.out.println("Tên tài khoản không tồn tại");
+                System.out.println("Username or password is wrong, please check again");
             }
         }
     }
@@ -323,6 +323,7 @@ public class Controller {
                                 newBalance = users.get(i).getBalance() - withdrawAmount;
                                 users.get(i).setBalance(newBalance);
                             } else {
+
                                 throw new RuntimeException("Please enter an amount bigger than 0");
                             }
                         }
@@ -370,9 +371,7 @@ public class Controller {
                     }
                 }
             }
-        } catch (
-
-        RuntimeException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
         System.out.println("1 - Return");
