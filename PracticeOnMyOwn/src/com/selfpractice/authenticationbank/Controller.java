@@ -72,13 +72,13 @@ public class Controller {
         while (!checkCreate) {
             try {
                 id = users.size() + 1;
-                System.out.print("Nhập tên tài khoản:");
+                System.out.print("Enter your username:");
                 newUsername = scanner.nextLine();
-                System.out.print("Nhập email: ");
+                System.out.print("Enter your email: ");
                 newEmail = Validation.validateEmail(scanner.nextLine());
-                System.out.print("Nhập mật khẩu: ");
+                System.out.print("Enter your password: ");
                 newPassword = Validation.validatePassword(scanner.nextLine());
-                System.out.print("Nhập số tài khoản:");
+                System.out.print("Enter your account number:");
                 newaccNum = Validation.validateaccNum(scanner.nextLine());
                 for (int i = 0; i < users.size(); i++) {
                     if (newUsername.equals(users.get(i).getUsername()))
@@ -95,13 +95,13 @@ public class Controller {
         }
         users.add(new User(id, newaccNum, newUsername, newEmail, newPassword, newBalance));
         Controller.clearScreen();
-        System.out.println("Đăng kí thành công vui lòng đăng nhập lại");
+        System.out.println("Registered successfully! Please re-login into your account");
         login();
     }
 
     public void loginSuccess() {
         Controller.clearScreen();
-        System.out.println("Chào mừng " + username + "quay trở lại, hãy chọn phương thức bạn muốn thực hiện:");
+        System.out.println("Welcome! " + username + ", please select a method you want to do: ");
         Menu.loginSuccessMenu();
         while (true) {
             int choice;
