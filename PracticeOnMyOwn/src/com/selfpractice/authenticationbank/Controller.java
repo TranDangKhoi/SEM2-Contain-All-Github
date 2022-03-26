@@ -241,50 +241,51 @@ public class Controller {
     }
 
     public void transferMoney() {
-        boolean checkTransfer = false;
         String accNumTransfer = null;
         double newBalance = 0.0;
         boolean transactionFailed = true;
+        double transferAmount;
+        int count = 0;
         System.out.print("Please enter the account number you want to transfer to: ");
         accNumTransfer = scanner.nextLine();
-        while (!checkTransfer) {
-            try {
-                for (int i = 0; i < users.size(); i++) {
-                    if (accNumTransfer.equals(users.get(i).getaccNum())) {
-                        double transferAmount;
-                        System.out.print("Please enter the amount of money you want to transfer: ");
-                        transferAmount = scanner.nextDouble();
-                        if (transferAmount > 0) {
-                            for (int j = 0; j < users.size(); j++) {
-                                if (username.equals(users.get(j).getUsername())
-                                        && users.get(j).getBalance() > transferAmount) {
+        try {
+            for (int i = 0; i < users.size(); i++) {
+                if (accNumTransfer.equals(users.get(i).getaccNum())) {
+                    count++;
+                    System.out.print("Please enter the amount of money you want to transfer: ");
+                    transferAmount = scanner.nextDouble();
+                    if (transferAmount > 0) {
+                        for (int j = 0; j < users.size(); j++) {
+                            if (users.get(j).getBalance() > transferAmount) {
+                                clearScreen();
+                                System.out.println("Money has been transfered to " + users.get(i).getUsername());
+                                newBalance = users.get(i).getBalance() + transferAmount;
+                                users.get(i).setBalance(newBalance);
+                                if (username.equals(users.get(j).getUsername())) {
                                     transactionFailed = false;
-                                    clearScreen();
-                                    System.out.println("Money has been transfered to " + users.get(i).getUsername());
-                                    newBalance = users.get(i).getBalance() + transferAmount;
-                                    users.get(i).setBalance(newBalance);
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
                                     newBalance = users.get(j).getBalance() - transferAmount;
                                     users.get(j).setBalance(newBalance);
                                 }
                             }
-                            if (transactionFailed == true) {
-                                System.out.println("Transaction failed, please check your balance again");
-                            }
-                            if (transactionFailed == false) {
-                                System.out.println("Transaction completed");
-                            }
-                            checkTransfer = true;
-                        } else {
-                            throw new RuntimeException("Please enter a number bigger than 0");
                         }
+                        if (transactionFailed == true) {
+                            System.out.println("Transaction failed, please check your balance again");
+                        }
+                        if (transactionFailed == false) {
+                            System.out.println("Transaction completed");
+                        }
+                    } else {
+                        throw new RuntimeException("Please enter a number bigger than 0");
                     }
                 }
-            } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
-                break;
+                if (count == 0) {
+                    throw new RuntimeException("Account number is not existed, please enter an existed one");
+                }
             }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
         System.out.println("1 - Return");
         System.out.println("2 - Exit");
