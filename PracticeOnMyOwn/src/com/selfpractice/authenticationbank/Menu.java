@@ -10,7 +10,7 @@ public class Menu {
     }
 
     public static void loginFailMenu() {
-        System.out.println("Wrong password, please try again: ");
+        System.out.println("Username or password is wrong, please check again");
         System.out.println("1 - Re-logging in");
         System.out.println("2 - Forgot your password");
         System.out.print("Your choice is: ");

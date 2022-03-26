@@ -57,7 +57,7 @@ public class Controller {
                 }
             }
             if (count == 0) {
-                System.out.println("Username or password is wrong, please check again");
+                loginFail();
             }
         }
     }
