@@ -245,6 +245,7 @@ public class Controller {
         int count = 0;
         String accNumTransfer = null;
         double newBalance = 0.0;
+        boolean transactionFailed = true;
         while (!checkTransfer) {
             try {
                 System.out.print("Please enter the account number you want to transfer to: ");
@@ -256,32 +257,38 @@ public class Controller {
                         System.out.print("Please enter the amount of money you want to transfer: ");
                         transferAmount = scanner.nextDouble();
                         if (transferAmount > 0) {
-                            clearScreen();
-                            System.out.println("Money has been transfered to " + users.get(i).getUsername());
-                            newBalance = users.get(i).getBalance() + transferAmount;
-                            users.get(i).setBalance(newBalance);
+                            checkTransfer = true;
                             for (int j = 0; j < users.size(); j++) {
-                                if (username.equals(users.get(j).getUsername())) {
-                                    checkTransfer = true;
+                                if (username.equals(users.get(j).getUsername())
+                                        && users.get(j).getBalance() > transferAmount) {
+                                    clearScreen();
+                                    System.out.println("Money has been transfered to " + users.get(i).getUsername());
+                                    newBalance = users.get(i).getBalance() + transferAmount;
+                                    users.get(i).setBalance(newBalance);
+
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
                                     newBalance = users.get(j).getBalance() - transferAmount;
                                     users.get(j).setBalance(newBalance);
+                                    transactionFailed = false;
                                 }
                             }
                         } else {
-                            throw new RuntimeException("Your balance is not enough to be transfered");
+                            throw new RuntimeException("Please enter a number bigger than 0");
                         }
                     }
                 }
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
+            if (transactionFailed = true) {
+                System.out.println("Transaction failed, please check your balance again");
+            }
             if (count == 0) {
                 System.out.println("Can't find that account number, please try again");
             }
         }
-        System.out.println("1 - Return to login menu");
+        System.out.println("1 - Return");
         System.out.println("2 - Exit");
         int choice;
         choice = scanner.nextInt();
