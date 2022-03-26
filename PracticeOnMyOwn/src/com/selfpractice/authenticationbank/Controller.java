@@ -316,11 +316,15 @@ public class Controller {
                 for (int i = 0; i < users.size(); i++) {
                     if (users.get(i).getBalance() >= withdrawAmount) {
                         if (username.equals(users.get(i).getUsername())) {
-                            checkWithdraw = true;
-                            System.out.println("Withdraw successfully! Your balance is now: "
-                                    + (users.get(i).getBalance() - withdrawAmount));
-                            newBalance = users.get(i).getBalance() - withdrawAmount;
-                            users.get(i).setBalance(newBalance);
+                            if (withdrawAmount >= 0) {
+                                checkWithdraw = true;
+                                System.out.println("Withdraw successfully! Your balance is now: "
+                                        + (users.get(i).getBalance() - withdrawAmount));
+                                newBalance = users.get(i).getBalance() - withdrawAmount;
+                                users.get(i).setBalance(newBalance);
+                            } else {
+                                throw new RuntimeException("Please enter an amount bigger than 0");
+                            }
                         }
                     } else {
                         throw new RuntimeException("Your balance is not enough to be withdrawed");
@@ -330,7 +334,7 @@ public class Controller {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println("1 - Return to login menu");
+        System.out.println("1 - Return");
         System.out.println("2 - Exit");
         int choice;
         choice = scanner.nextInt();
@@ -351,17 +355,27 @@ public class Controller {
     public void depositMoney() {
         double depositAmount;
         double newBalance;
-        for (int i = 0; i < users.size(); i++) {
-            if (username.equals(users.get(i).getUsername())) {
-                System.out.print("Enter the amount you want to deposit: ");
-                depositAmount = scanner.nextDouble();
-                System.out.println(
-                        "Deposit successfully! Your balance is now: " + (users.get(i).getBalance() + depositAmount));
-                newBalance = users.get(i).getBalance() + depositAmount;
-                users.get(i).setBalance(newBalance);
+        try {
+            for (int i = 0; i < users.size(); i++) {
+                if (username.equals(users.get(i).getUsername())) {
+                    System.out.print("Enter the amount you want to deposit: ");
+                    depositAmount = scanner.nextDouble();
+                    if (depositAmount > 0) {
+                        System.out.println("Deposit successfully! Your balance is now: "
+                                + (users.get(i).getBalance() + depositAmount));
+                        newBalance = users.get(i).getBalance() + depositAmount;
+                        users.get(i).setBalance(newBalance);
+                    } else {
+                        throw new RuntimeException("Please enter an amount bigger than 0");
+                    }
+                }
             }
+        } catch (
+
+        RuntimeException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println("1 - Return to login menu");
+        System.out.println("1 - Return");
         System.out.println("2 - Exit");
         int choice;
         choice = scanner.nextInt();
