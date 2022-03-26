@@ -21,5 +21,13 @@
         "password": "toilamanager@123",
         "email": "manager@gmail.com",
         "balance": 6100.00
+    },
+    {
+        "id": 4,
+        "accNum": "7677110620034",
+        "username": "khoim",
+        "password": "toilakhoim@123",
+        "email": "khoim@gmail.com",
+        "balance": 9000.00
     }
 ]
