@@ -230,18 +230,19 @@ public class Controller {
                         double transferAmount;
                         System.out.print("Please enter the amount of money you want to transfer: ");
                         transferAmount = scanner.nextDouble();
-                        if (users.get(i).getBalance() > transferAmount) {
-                            checkTransfer = true;
+                        if (transferAmount > 0) {
                             clearScreen();
                             System.out.println("Money has been transfered to " + users.get(i).getUsername());
                             newBalance = users.get(i).getBalance() + transferAmount;
                             users.get(i).setBalance(newBalance);
                             for (int j = 0; j < users.size(); j++) {
-                                if (username.equals(users.get(j).getUsername()))
+                                if (username.equals(users.get(j).getUsername())) {
+                                    checkTransfer = true;
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
-                                newBalance = users.get(j).getBalance() - transferAmount;
-                                users.get(j).setBalance(newBalance);
+                                    newBalance = users.get(j).getBalance() - transferAmount;
+                                    users.get(j).setBalance(newBalance);
+                                }
                             }
                         } else {
                             throw new RuntimeException("Your balance is not enough to be transfered");
