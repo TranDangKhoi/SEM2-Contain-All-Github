@@ -364,8 +364,14 @@ public class Controller {
                         newPassword = Validation.validatePassword(scanner.nextLine());
                         users.get(i).setPassword(newPassword);
                         System.out.println("Changed password successfully!");
+                        checkValidate = true;
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage() + ", please re-enter a valid password");
+                    }
+                    if (checkValidate = true) {
+                        clearScreen();
+                        System.out.println("Please log-in again");
+                        login();
                     }
                 }
             }
@@ -373,7 +379,7 @@ public class Controller {
         if (count == 0) {
             System.out.println("The email you entered is invalid, please try again");
         }
-        System.out.println("1 - Return to login menu");
+        System.out.println("1 - Try again");
         System.out.println("2 - Exit");
         int choice;
         choice = scanner.nextInt();
@@ -381,8 +387,7 @@ public class Controller {
         switch (choice) {
             case 1:
                 clearScreen();
-                System.out.println("Please log in again:");
-                login();
+                forgotPassword();
                 break;
             case 2:
                 clearScreen();
