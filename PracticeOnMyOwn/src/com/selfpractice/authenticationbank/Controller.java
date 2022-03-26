@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Controller {
     String username;
     String password;
+    String accNum;
     Repository repo = new Repository();
     List<User> users = repo.getData();
     Scanner scanner = new Scanner(System.in);
@@ -114,6 +115,11 @@ public class Controller {
 
     public void loginSuccess() {
         Controller.clearScreen();
+        for (int i = 0; i < users.size(); i++) {
+            if (username.equals(users.get(i).getUsername())) {
+                System.out.println("Account number: " + users.get(i).getaccNum());
+            }
+        }
         System.out.println("Welcome! " + username + ", please select a method you want to do: ");
         Menu.loginSuccessMenu();
         while (true) {
