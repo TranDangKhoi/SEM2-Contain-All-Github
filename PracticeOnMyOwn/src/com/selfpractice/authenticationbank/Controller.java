@@ -176,7 +176,7 @@ public class Controller {
     }
 
     public void changePassword() {
-        System.out.println("Please enter the old password: ");
+        System.out.print("Please enter the old password: ");
         password = scanner.nextLine();
         int count = 0;
         for (int i = 0; i < users.size(); i++) {
