@@ -261,16 +261,16 @@ public class Controller {
                             for (int j = 0; j < users.size(); j++) {
                                 if (username.equals(users.get(j).getUsername())
                                         && users.get(j).getBalance() > transferAmount) {
+                                    transactionFailed = false;
                                     clearScreen();
                                     System.out.println("Money has been transfered to " + users.get(i).getUsername());
                                     newBalance = users.get(i).getBalance() + transferAmount;
                                     users.get(i).setBalance(newBalance);
-
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
                                     newBalance = users.get(j).getBalance() - transferAmount;
                                     users.get(j).setBalance(newBalance);
-                                    transactionFailed = false;
+
                                 }
                             }
                         } else {
@@ -281,8 +281,11 @@ public class Controller {
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
-            if (transactionFailed = true) {
+            if (transactionFailed == true) {
                 System.out.println("Transaction failed, please check your balance again");
+            }
+            if (transactionFailed == false) {
+                System.out.println("Transaction completed");
             }
             if (count == 0) {
                 System.out.println("Can't find that account number, please try again");
