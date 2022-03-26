@@ -39,12 +39,12 @@ public class Controller {
         boolean checkLogin = false;
         while (!checkLogin) {
             int count = 0;
-            System.out.print("Hãy nhập vào tên tài khoản của bạn:");
+            System.out.print("Your username: ");
             username = scanner.nextLine();
             for (int i = 0; i < users.size(); i++) {
                 if (username.equals(users.get(i).getUsername())) {
                     count++;
-                    System.out.print("Hãy nhập vào mật khẩu của bạn:");
+                    System.out.print("Your password: ");
                     password = scanner.nextLine();
                     if (password.equals(users.get(i).getPassword())) {
                         loginSuccess();
@@ -69,24 +69,37 @@ public class Controller {
         String newEmail = null;
         String newPassword = null;
         double newBalance = 0.00;
+        String reconfirmPassword = null;
         while (!checkCreate) {
             try {
                 id = users.size() + 1;
                 System.out.print("Enter your username:");
                 newUsername = scanner.nextLine();
-                System.out.print("Enter your email: ");
-                newEmail = Validation.validateEmail(scanner.nextLine());
-                System.out.print("Enter your password: ");
-                newPassword = Validation.validatePassword(scanner.nextLine());
-                System.out.print("Enter your account number:");
-                newaccNum = Validation.validateaccNum(scanner.nextLine());
                 for (int i = 0; i < users.size(); i++) {
                     if (newUsername.equals(users.get(i).getUsername()))
                         throw new RuntimeException("This username had existed, please choose another username");
+                }
+                System.out.print("Enter your email: ");
+                newEmail = Validation.validateEmail(scanner.nextLine());
+                for (int i = 0; i < users.size(); i++) {
                     if (newEmail.equals(users.get(i).getEmail()))
                         throw new RuntimeException("This email had existed, please choose another email");
-                    if (newaccNum.equals(users.get(i).getaccNum()))
-                        throw new RuntimeException("This bank number had existed, please choose another bank number");
+                }
+                System.out.print("Enter your password: ");
+                newPassword = Validation.validatePassword(scanner.nextLine());
+                System.out.print("Please re-confirm your password: ");
+                reconfirmPassword = Validation.validatePassword(scanner.nextLine());
+                if (reconfirmPassword.equals(newPassword)) {
+                    System.out.print("Enter your account number:");
+                    newaccNum = Validation.validateaccNum(scanner.nextLine());
+                    for (int i = 0; i < users.size(); i++) {
+                        if (newaccNum.equals(users.get(i).getaccNum()))
+                            throw new RuntimeException(
+                                    "This bank number had existed, please choose another bank number");
+                    }
+                } else {
+                    throw new RuntimeException(
+                            "The re-confirm password and your password is not the same, please try again");
                 }
                 checkCreate = true;
             } catch (RuntimeException e) {
@@ -170,13 +183,19 @@ public class Controller {
             if (password.equals(users.get(i).getPassword())) {
                 count++;
                 String newPassword = null;
-                // String reConfirmPassword = null;
+                String reConfirmPassword = null;
                 boolean check = false;
                 while (!check) {
                     try {
                         System.out.print("Please enter the new password: ");
                         newPassword = Validation.validatePassword(scanner.nextLine());
-                        check = true;
+                        System.out.print("Please re-confirm your password: ");
+                        reConfirmPassword = Validation.validatePassword(scanner.nextLine());
+                        if (reConfirmPassword.equals(newPassword)) {
+                            check = true;
+                        } else {
+                            System.out.println("Wrong re-confirm password, please try again");
+                        }
                     } catch (RuntimeException e) {
                         System.out.println(e);
                     }
