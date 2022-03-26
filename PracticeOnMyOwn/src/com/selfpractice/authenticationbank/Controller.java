@@ -256,7 +256,7 @@ public class Controller {
                     transferAmount = scanner.nextDouble();
                     if (transferAmount > 0) {
                         for (int j = 0; j < users.size(); j++) {
-                            if (users.get(j).getBalance() > transferAmount) {
+                            if (users.get(j).getBalance() >= transferAmount) {
                                 clearScreen();
                                 System.out.println("Money has been transfered to " + users.get(i).getUsername());
                                 newBalance = users.get(i).getBalance() + transferAmount;
@@ -314,7 +314,7 @@ public class Controller {
                 System.out.print("Enter the amount of money you want to withdraw: ");
                 withdrawAmount = scanner.nextDouble();
                 for (int i = 0; i < users.size(); i++) {
-                    if (users.get(i).getBalance() > withdrawAmount) {
+                    if (users.get(i).getBalance() >= withdrawAmount) {
                         if (username.equals(users.get(i).getUsername())) {
                             checkWithdraw = true;
                             System.out.println("Withdraw successfully! Your balance is now: "
