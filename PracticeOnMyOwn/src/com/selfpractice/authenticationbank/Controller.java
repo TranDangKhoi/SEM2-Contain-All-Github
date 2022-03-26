@@ -251,13 +251,13 @@ public class Controller {
         try {
             for (int i = 0; i < users.size(); i++) {
                 if (accNumTransfer.equals(users.get(i).getaccNum())) {
-                    count++;
                     System.out.print("Please enter the amount of money you want to transfer: ");
                     transferAmount = scanner.nextDouble();
                     if (transferAmount > 0) {
                         for (int j = 0; j < users.size(); j++) {
-                            if (users.get(j).getBalance() >= transferAmount) {
+                            if (users.get(j).getBalance() > transferAmount) {
                                 clearScreen();
+                                count++;
                                 System.out.println("Money has been transfered to " + users.get(i).getUsername());
                                 newBalance = users.get(i).getBalance() + transferAmount;
                                 users.get(i).setBalance(newBalance);
@@ -280,9 +280,9 @@ public class Controller {
                         throw new RuntimeException("Please enter a number bigger than 0");
                     }
                 }
-                if (count == 0) {
-                    throw new RuntimeException("Account number is not existed, please enter an existed one");
-                }
+            }
+            if (count == 0) {
+                System.out.println("Account number is not existed, please enter an existed one");
             }
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
@@ -343,6 +343,12 @@ public class Controller {
         switch (choice) {
             case 1:
                 clearScreen();
+                for (int i = 0; i < users.size(); i++) {
+                    if (username.equals(users.get(i).getUsername())) {
+                        System.out.println("Account number: " + users.get(i).getaccNum());
+                    }
+                }
+                System.out.println("Welcome! " + username + ", please select a method you want to do: ");
                 Menu.loginSuccessMenu();
                 break;
             case 2:
@@ -382,6 +388,12 @@ public class Controller {
         switch (choice) {
             case 1:
                 clearScreen();
+                for (int i = 0; i < users.size(); i++) {
+                    if (username.equals(users.get(i).getUsername())) {
+                        System.out.println("Account number: " + users.get(i).getaccNum());
+                    }
+                }
+                System.out.println("Welcome! " + username + ", please select a method you want to do: ");
                 Menu.loginSuccessMenu();
                 break;
             case 2:
