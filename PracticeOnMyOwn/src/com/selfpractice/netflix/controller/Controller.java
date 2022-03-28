@@ -1,65 +1,49 @@
 package com.selfpractice.netflix.controller;
 
-import com.selfpractice.netflix.repository.Repository;
-import com.selfpractice.netflix.*;
-import com.selfpractice.clearscreen.*;
+import com.selfpractice.netflix.model.*;
+import com.selfpractice.netflix.repository.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
 
 public class Controller {
     Repository repo = new Repository();
     List<Movie> list = repo.getData();
-    static Scanner scanner = new Scanner(System.in);
 
-    public static void menu() {
-        Menu.mainMenu();
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        switch (choice) {
-            case 1:
-                Clear.clearScreen();
-                sortAndShow();
-                break;
-            case 2:
-                Clear.clearScreen();
-                searchByName();
-                break;
-            case 3:
-                Clear.clearScreen();
-                searchByCategory();
-                break;
-            case 4:
-                Clear.clearScreen();
-                searchByLanguage();
-                break;
-            case 5:
-                Clear.clearScreen();
-                showAllByCategory();
-                break;
-            case 6:
-                System.exit(1);
-                break;
+    public void showAll() {
+
+    }
+
+    public void sortAndShow() {
+        Collections.sort(list, new Comparator<Movie>() {
+            @Override
+            public int compare(Movie o1, Movie o2) {
+                return 0;
+            }
+        });
+    }
+
+    public void searchByName(List<Movie> list, String movieName) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getMovieName().toLowerCase().contains(movieName))
+                System.out.println(list.get(i));
         }
     }
 
-    public static void sortAndShow() {
-        System.out.println("Hello");
+    public void searchByCategory(List<Movie> list, String movieCategory) {
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).getMovieCategory().contains(movieCategory);
+        }
     }
 
-    public static void searchByName() {
-
+    public void searchByLanguage(List<Movie> list, String language) {
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).getLanguage().contains(language);
+        }
     }
 
-    public static void searchByCategory() {
-
-    }
-
-    public static void searchByLanguage() {
-
-    }
-
-    public static void showAllByCategory() {
+    public void showAllByCategory() {
 
     }
 }

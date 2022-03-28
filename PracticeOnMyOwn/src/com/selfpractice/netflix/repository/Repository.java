@@ -6,10 +6,10 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.selfpractice.netflix.Movie;
+import com.selfpractice.netflix.model.Movie;
 
 public class Repository {
-    public List<Movie> Movies;
+    public List<Movie> MovieList;
 
     public List<Movie> getData() {
         try {
@@ -18,11 +18,11 @@ public class Repository {
             // Dung thu vien GSON - chuyen tu JSON text -> object
             Type objectType = new TypeToken<List<Movie>>() {
             }.getType();
-            Movies = new Gson().fromJson(reader, objectType);
+            MovieList = new Gson().fromJson(reader, objectType);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return Movies;
+        return MovieList;
     }
 }

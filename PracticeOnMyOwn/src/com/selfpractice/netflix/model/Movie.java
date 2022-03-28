@@ -1,4 +1,4 @@
-package com.selfpractice.netflix;
+package com.selfpractice.netflix.model;
 
 public class Movie {
     private int id;
@@ -78,15 +78,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", movieName='" + getMovieName() + "'" +
-                ", movieCategory='" + getMovieCategory() + "'" +
-                ", actor='" + getActor() + "'" +
-                ", language='" + getLanguage() + "'" +
-                ", publishingYear='" + getPublishingYear() + "'" +
-                ", publisher='" + getPublisher() + "'" +
-                "}";
+        return id + ". " + movieName;
     }
 
 }
