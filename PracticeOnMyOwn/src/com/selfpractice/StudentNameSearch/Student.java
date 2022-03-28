@@ -1,20 +1,21 @@
-package com.selfpractice.StudentNameSearch;
+package com.selfpractice.studentnamesearch;
 
 public class Student {
     private String name;
-    public Student(){
+
+    public Student() {
 
     }
 
-    public Student(String name){
+    public Student(String name) {
         this.name = name;
     }
 
-    public void printInfo(){
+    public void printInfo() {
         System.out.printf("%s\n", getStuName());
     }
 
-    public String getStuName(){
+    public String getStuName() {
         return this.name;
     }
 }

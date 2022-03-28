@@ -1,27 +1,23 @@
-package com.selfpractice.StudentNameStore;
+package com.selfpractice.studentnamestore;
 
 import java.util.ArrayList;
-
 
 public class StudentList {
     ArrayList<Student> myStudentsList;
 
-    public StudentList(){
+    public StudentList() {
         myStudentsList = new ArrayList<Student>();
     }
 
-    public void add(Student student){
+    public void add(Student student) {
         myStudentsList.add(student);
     }
 
-  
-
-    public void showNameList(){
+    public void showNameList() {
         System.out.println("\t\tAll Students's Names");
-        for(Student myStudent: myStudentsList){
+        for (Student myStudent : myStudentsList) {
             myStudent.printInfo();
         }
     }
 
-    
 }

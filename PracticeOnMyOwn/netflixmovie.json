@@ -1,0 +1,37 @@
+[{
+        "id": 1,
+        "movieName": "Spider's Man Homecoming",
+        "movieCategory": "Action|Superheroes|Science|Comedy",
+        "actor": "Tom Holland|Zendaya|Robert Downey Jr|Jacob Batalon|Laura Harrier|Jon Favreau",
+        "language": "English",
+        "publishingYear": 2022,
+        "publisher": "Sony Pictures"
+    },
+    {
+        "id": 2,
+        "movieName": "Despicable Me 2",
+        "movieCategory": "Action|Science|Comedy|Animation",
+        "actor": "Steve Carell|Steve Coogan|Pierre Coffin",
+        "language": "English",
+        "publishingYear": 2017,
+        "publisher": "Universal Pictures|Illumination"
+    },
+    {
+        "id": 3,
+        "movieName": "Avengers: Endgame",
+        "movieCategory": "Action|Superheroes|Science|Comedy",
+        "actor": "Tom Holland|Chris Evans|Scarlett Johansson|Chris Hemsworth|Jeremy Renner",
+        "language": "English",
+        "publishingYear": 2019,
+        "publisher": "Marvel Studios"
+    },
+    {
+        "id": 4,
+        "movieName": "Jumanji: Welcome To The Jungle",
+        "movieCategory": "Action||Science|Comedy|Adventure|History",
+        "actor": "Dwayne Johnson|Jack Black|Kenvin Hart|Madison Iseman|Nick Jonas|Jack Black",
+        "language": "English",
+        "publishingYear": 2017,
+        "publisher": "Columbia Pictures"
+    }
+]

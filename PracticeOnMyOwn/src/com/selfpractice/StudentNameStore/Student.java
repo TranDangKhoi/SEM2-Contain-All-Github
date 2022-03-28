@@ -1,21 +1,21 @@
-package com.selfpractice.StudentNameStore;
+package com.selfpractice.studentnamestore;
 
 public class Student {
     private String name;
 
-    public Student(){
+    public Student() {
         this.name = "Not specified";
     }
 
-    public Student(String name){
+    public Student(String name) {
         this.name = name;
     }
 
-    public String getStuName(){
+    public String getStuName() {
         return this.name;
     }
 
-    public void printInfo(){
+    public void printInfo() {
         System.out.printf("%s\n", getStuName());
     }
 }
