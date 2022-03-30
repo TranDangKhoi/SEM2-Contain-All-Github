@@ -1,5 +1,9 @@
 package com.selfpractice.banksystem;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class User {
     private long id;
     private String username;
@@ -63,6 +67,20 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public class Formatter {
+        public String formatDate() {
+            Calendar objNow = Calendar.getInstance();
+
+            SimpleDateFormat objFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return objFormat.format(objNow.getTime());
+        }
+
+        public double decimalFormat(double balance) {
+            DecimalFormat twoDForm = new DecimalFormat("###,###,##0.00");
+            return Double.valueOf(twoDForm.format(balance));
+        }
     }
 
     @Override

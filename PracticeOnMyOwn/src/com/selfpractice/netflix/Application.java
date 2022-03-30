@@ -5,8 +5,6 @@ import com.selfpractice.netflix.model.*;
 import com.selfpractice.netflix.repository.*;
 import com.selfpractice.netflix.controller.*;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 

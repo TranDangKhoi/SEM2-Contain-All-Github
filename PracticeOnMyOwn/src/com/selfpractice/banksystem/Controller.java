@@ -1,8 +1,5 @@
 package com.selfpractice.banksystem;
 
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,20 +14,6 @@ public class Controller {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-    }
-
-    public class Formatter {
-        public String formatDate() {
-            Calendar objNow = Calendar.getInstance();
-
-            SimpleDateFormat objFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            return objFormat.format(objNow.getTime());
-        }
-
-        public double decimalFormat(double balance) {
-            DecimalFormat twoDForm = new DecimalFormat("###,###,##0.00");
-            return Double.valueOf(twoDForm.format(balance));
-        }
     }
 
     public void home() {
@@ -277,13 +260,13 @@ public class Controller {
                                 count++;
                                 System.out.println("Money has been transfered to " + users.get(i).getUsername());
                                 newBalance = users.get(i).getBalance() + transferAmount;
-                                users.get(i).setBalance(new Formatter().decimalFormat(newBalance));
+                                users.get(i).setBalance(newBalance);
                                 if (username.equals(users.get(j).getUsername())) {
                                     transactionFailed = false;
                                     System.out.println(
                                             "Your current balance is: " + (users.get(j).getBalance() - transferAmount));
                                     newBalance = users.get(j).getBalance() - transferAmount;
-                                    users.get(j).setBalance(new Formatter().decimalFormat(newBalance));
+                                    users.get(j).setBalance(newBalance);
                                 }
                             }
                         }
