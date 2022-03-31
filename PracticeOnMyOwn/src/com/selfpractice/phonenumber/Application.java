@@ -8,14 +8,15 @@ import com.selfpractice.clearscreen.Clear;
 public class Application {
     private static Scanner input = new Scanner(System.in);
     private static NumberList list;
+    public static String lastFound;
 
     public static void menu() {
         int choice;
         while (true) {
             System.out.println("Select one method:");
-            System.out.println("1. Insert new phone number");
-            System.out.println("2. Search phone number");
-            System.out.println("3. Delete phone number");
+            System.out.println("1. Insert new info");
+            System.out.println("2. Search by name");
+            System.out.println("3. Delete last looked up name info");
             System.out.println("4. Exit");
             System.out.print("Your choice is:");
             choice = input.nextInt();
