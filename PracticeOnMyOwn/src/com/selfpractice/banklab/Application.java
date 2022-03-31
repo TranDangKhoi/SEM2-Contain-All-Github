@@ -46,4 +46,11 @@ public class Application {
             }
         }
     }
+
+    public static void menu() {
+        System.out.println("Select one method:");
+        System.out.println("1. Check balance");
+        System.out.println("2. Transfer");
+        System.out.println("3. Check transaction history");
+    }
 }

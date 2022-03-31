@@ -7,7 +7,7 @@ import java.util.List;
 public class Controller {
 
     private static long balanceNumber = 100000;
-    List<TransactionHistory> listHistory = new ArrayList<>(TransactionHistory);
+    List<TransactionHistory> listHistory = new ArrayList<TransactionHistory>();
 
     public long getBalanceNumber() {
         return balanceNumber;
@@ -17,6 +17,9 @@ public class Controller {
         // Kiểm tra nếu số tiền nhỏ hơn 50,000 thì thông báo số tiền chuyển tối thiểu phải là 50,000
         // Nếu số tiền chuyển lớn hơn số dư thì thông báo tài khoản không đủ
         // Nếu chuyển thành công, thì thông báo chuyển khoản thành công, in ra số dư mới và thêm lịch sử giao dịch mới
+        if (balanceNumber > 50000) {
+
+        }
         return balanceNumber;
     }
 
