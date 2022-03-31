@@ -24,4 +24,8 @@ public class PhoneNumber {
     public void setNumber(String number) {
         this.number = number;
     }
+
+    public void printInfo() {
+        System.out.printf("%s | %s\n", getName(), getNumber());
+    }
 }
