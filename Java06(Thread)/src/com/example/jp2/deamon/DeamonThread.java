@@ -5,7 +5,7 @@ public class DeamonThread extends Thread {
     public void run() {
         int count = 0;
         while (true) {
-            System.out.println("Deamon Thread is running " + count++);
+            System.out.println("-- Deamon Thread is running " + count++);
             try {
                 sleep(2000);
             } catch (InterruptedException e) {

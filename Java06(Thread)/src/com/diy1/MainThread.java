@@ -1,7 +1,5 @@
 package com.diy1;
 
-import com.example.jp2.thread.DemoThread;
-
 public class MainThread {
     public static void main(String[] args) {
         MyThread myThread = new MyThread();
