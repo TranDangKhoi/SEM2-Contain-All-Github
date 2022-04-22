@@ -24,7 +24,7 @@ public class Application {
 
     //           _.-/`)
     //          // / / )
-    //       .=// / / / )
+    //       .=// / / / )s
     //      //`/ / / / /
     //     // /     ` /
     //    ||         /
@@ -34,8 +34,6 @@ public class Application {
     //          /
     // Cầu trời khấn phật cho con code không có bugs
     public static void main(String[] args) throws Exception {
-        Controller.clearScreen();
-        Controller controller = new Controller();
-        controller.home();
+
     }
 }
