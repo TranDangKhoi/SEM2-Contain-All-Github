@@ -22,7 +22,7 @@ public class CustomerDaoImpl implements CustomerDao {
             customer.setId(keys.getInt(1));
         }
 
-        System.out.println(rows);
+        System.out.println("Added" + rows + "new employee");
     }
 
     @Override
