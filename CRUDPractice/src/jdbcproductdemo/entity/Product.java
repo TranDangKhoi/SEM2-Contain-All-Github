@@ -49,4 +49,14 @@ public class Product {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                " id='" + getId() + "'" +
+                ", proName='" + getProName() + "'" +
+                ", proDesc='" + getProDesc() + "'" +
+                ", price='" + getPrice() + "'" +
+                "}";
+    }
+
 }

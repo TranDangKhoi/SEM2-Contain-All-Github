@@ -53,13 +53,8 @@ public class ProductDaoImpl implements ProductDAO {
             product.setProDesc(resultSet.getString(3));
             product.setPrice(resultSet.getDouble(4));
             allProducts.add(product);
-
-        }
-        for (Product productList : allProducts) {
-            productList.printInfo();
         }
         return allProducts;
-
     }
 
     @Override
@@ -79,6 +74,8 @@ public class ProductDaoImpl implements ProductDAO {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ProductDaoImpl productDaoImpl = new ProductDaoImpl();
-        productDaoImpl.getAllProducts();
+        ArrayList<Product> productList = new ArrayList<>();
+        productList = productDaoImpl.getAllProducts();
+        System.out.println(productList);
     }
 }
