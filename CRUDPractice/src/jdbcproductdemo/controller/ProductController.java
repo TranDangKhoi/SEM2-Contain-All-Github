@@ -11,4 +11,5 @@ public class ProductController {
     public void addNewProduct(Product product) throws ClassNotFoundException, SQLException {
         productDaoImpl.addNewProduct(product);
     }
+
 }

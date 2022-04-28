@@ -6,7 +6,7 @@ public class SQLServerConnection {
     public static Connection getSQLServerConnection() throws ClassNotFoundException, SQLException {
         String hostName = "localhost";
         String serverName = "LAPTOP-87VE26VM";
-        String databaseName = "logininfo";
+        String databaseName = "practicaltestdb";
         String username = "sa";
         String password = "sa";
         Connection connection = getSQLServerConnection(hostName, serverName, databaseName, username, password);
