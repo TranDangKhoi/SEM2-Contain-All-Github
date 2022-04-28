@@ -26,20 +26,47 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public void findCustomerByName(String name) {
-
+    public ArrayList<Customer> findCustomerByName(String name) throws ClassNotFoundException, SQLException {
+        Connection connection = SQLServerConnection.getSQLServerConnection();
+        ArrayList<Customer> allCustomerName = new ArrayList<>();
+        String query = "select * from Customer where customerName = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, name);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Customer customer = new Customer();
+            customer.setId(resultSet.getInt(1));
+            customer.setCustomerName(resultSet.getString(2));
+            customer.setCustomerEmail(resultSet.getString(3));
+            customer.setCustomerPhone(resultSet.getString(4));
+            allCustomerName.add(customer);
+        }
+        return allCustomerName;
     }
 
     @Override
     public ArrayList<Customer> showAllCustomers() {
-
-        return null;
+        Connection connection = GetSQLConnection.SQLServerConnection();
+        ArrayList<Product> allProducts = new ArrayList<>();
+        String query = "select * from Products";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Product product = new Product();
+            product.setId(resultSet.getInt(1));
+            product.setProName(resultSet.getString(2));
+            product.setProDesc(resultSet.getString(3));
+            product.setPrice(resultSet.getDouble(4));
+            allProducts.add(product);
+        }
+        return allProducts;
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         CustomerDaoImpl customerDaoImpl = new CustomerDaoImpl();
-        Customer customer = new Customer(1, "Vin Diesel", "vindiesel12@gmail.com", "988323245");
-        customerDaoImpl.addNewCustomer(customer);
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers = customerDaoImpl.findCustomerByName("Khoi");
+        System.out.println(customers);
     }
 
 }

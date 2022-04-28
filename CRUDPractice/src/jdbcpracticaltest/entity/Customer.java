@@ -12,7 +12,7 @@ public class Customer {
 
     public Customer(int id, String customerName, String customerEmail, String customerPhone) {
         this.id = id;
-        this.customerName = customerEmail;
+        this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPhone = customerPhone;
     }
@@ -47,6 +47,16 @@ public class Customer {
 
     public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " id='" + getId() + "'" +
+                ", customerName='" + getCustomerName() + "'" +
+                ", customerEmail='" + getCustomerEmail() + "'" +
+                ", customerPhone='" + getCustomerPhone() + "'" +
+                "}";
     }
 
 }
