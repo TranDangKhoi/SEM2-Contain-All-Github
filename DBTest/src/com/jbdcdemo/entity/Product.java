@@ -41,4 +41,15 @@ public class Product {
     public Product() {
 
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " id='" + getId() + "'" +
+                ", productName='" + getProductName() + "'" +
+                ", productDesc='" + getProductDesc() + "'" +
+                ", price='" + getPrice() + "'" +
+                "}";
+    }
+
 }
