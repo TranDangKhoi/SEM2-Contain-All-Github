@@ -10,5 +10,5 @@ public interface CustomerDao {
 
     public ArrayList<Customer> findCustomerByName(String name) throws ClassNotFoundException, SQLException;
 
-    public ArrayList<Customer> showAllCustomers();
+    public ArrayList<Customer> showAllCustomers() throws ClassNotFoundException, SQLException;
 }

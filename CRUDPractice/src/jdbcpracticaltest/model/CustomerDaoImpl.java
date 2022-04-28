@@ -45,27 +45,27 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public ArrayList<Customer> showAllCustomers() {
-        Connection connection = GetSQLConnection.SQLServerConnection();
-        ArrayList<Product> allProducts = new ArrayList<>();
-        String query = "select * from Products";
+    public ArrayList<Customer> showAllCustomers() throws ClassNotFoundException, SQLException {
+        Connection connection = SQLServerConnection.getSQLServerConnection();
+        ArrayList<Customer> allCustomers = new ArrayList<>();
+        String query = "select * from Customer";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            Product product = new Product();
-            product.setId(resultSet.getInt(1));
-            product.setProName(resultSet.getString(2));
-            product.setProDesc(resultSet.getString(3));
-            product.setPrice(resultSet.getDouble(4));
-            allProducts.add(product);
+            Customer customer = new Customer();
+            customer.setId(resultSet.getInt(1));
+            customer.setCustomerName(resultSet.getString(2));
+            customer.setCustomerEmail(resultSet.getString(3));
+            customer.setCustomerPhone(resultSet.getString(4));
+            allCustomers.add(customer);
         }
-        return allProducts;
+        return allCustomers;
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         CustomerDaoImpl customerDaoImpl = new CustomerDaoImpl();
         ArrayList<Customer> customers = new ArrayList<>();
-        customers = customerDaoImpl.findCustomerByName("Khoi");
+        customers = customerDaoImpl.showAllCustomers();
         System.out.println(customers);
     }
 
