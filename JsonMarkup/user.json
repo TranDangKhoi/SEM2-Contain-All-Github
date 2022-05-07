@@ -1,0 +1,31 @@
+[{
+    "id": 1,
+    "name": "Đức",
+    "address": [
+      "HCM",
+      "Kim Ngưu"
+    ],
+    "email": "duc@fpt.edu.vn",
+    "isActive": true
+  },
+  {
+    "id": 1,
+    "name": "Khôi",
+    "address": [
+      "HCM",
+      "Kim Ngưu"
+    ],
+    "email": "khoi@fpt.edu.vn",
+    "isActive": true
+  },
+  {
+    "id": 1,
+    "name": "Minh",
+    "address": [
+      "HCM",
+      "Kim Ngưu"
+    ],
+    "email": "minh@fpt.edu.vn",
+    "isActive": true
+  }
+]

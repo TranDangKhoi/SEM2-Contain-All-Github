@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "Minh",
+  "address": [
+    "Trung Kính",
+    "Ton TT"
+  ],
+  "email": "minh@fpt.edu.vn",
+  "isActive": true
+}

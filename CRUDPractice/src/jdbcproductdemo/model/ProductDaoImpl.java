@@ -74,8 +74,7 @@ public class ProductDaoImpl implements ProductDAO {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ProductDaoImpl productDaoImpl = new ProductDaoImpl();
-        ArrayList<Product> productList = new ArrayList<>();
-        productList = productDaoImpl.getAllProducts();
-        System.out.println(productList);
+        Product product = new Product(1, "Iphone XS Max", "100% Moi", 9000);
+        productDaoImpl.addNewProduct(product);
     }
 }
